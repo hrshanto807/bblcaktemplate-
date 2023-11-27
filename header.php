@@ -16,25 +16,19 @@
         <div id="header-wrapper">
             <div id="header">
                 <div id="logo">
-                    <h1><a href="#">Black/White </a></h1>
-                    <p>Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a></p>
+                    <h1><a href="<?php site_url();?>"><?php bloginfo('name')?></a></h1>
+                    <p><?php bloginfo('description')?></p>
                 </div>
             </div>
         </div>
         <!-- end #header -->
+        <div id = "menu">
         <?php
         if (has_nav_menu('blbackmenu')) {
             wp_nav_menu(array(
                 'theme-location' => 'blbackmenu',                
                 'fallback_cb'     => 'custombblckmenu',
-                'menu_id' => 'menu',
-                
-
-
-
             ));
-        };
-
-
-        ?>
+        };?>
+        </div>
         <!-- end #menu -->
