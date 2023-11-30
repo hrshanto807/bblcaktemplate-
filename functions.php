@@ -5,14 +5,17 @@ function bblack_template()
 {
     load_theme_textdomain('bblack', get_template_directory() . '/lang');
     add_theme_support('title-tag');
-    register_nav_menu('blbackmenu', __('Main Menu','bblack'));
+    register_nav_menu('blbackmenu', __('Main Menu', 'bblack'));
     add_theme_support('custom-header');
     add_theme_support('custom-background', array(
         'default-image' => get_theme_file_uri('images/img04.jpg'),
     ));
 
     add_theme_support('post-thumbnails');
-    add_image_size('bblock-post-thumbnails', 186, 186, false);
+    add_image_size('bblock-post-thumbnails', 186, 186, true);
+
+    // extra
+    add_theme_support('widgets');
 };
 
 function bblack_amar_sob_scripts()
@@ -23,6 +26,10 @@ function bblack_amar_sob_scripts()
 
     wp_enqueue_style('btblcak_google_fonts', 'http://fonts.googleapis.com/css?family=Nova+Mono');
     wp_enqueue_style('btblcak_stylesheet', get_theme_file_uri('/style.css'));
+
+    // extra
+    wp_enqueue_script('jquery');
+    wp_enqueue_script('bblack', get_template_directory_uri() . '/custom.js');
 }; ?>
 
 <?php function custombblckmenu()
@@ -42,4 +49,70 @@ function bblack_amar_sob_scripts()
 
 add_action('after_setup_theme', 'bblack_template');
 add_action('wp_enqueue_scripts', 'bblack_amar_sob_scripts');
+
+
+function bblack_widgets_sidebar()
+{
+    register_sidebar(array(
+        'name'          => __('Main Sidebar', 'themetheme'),
+        'id'            => 'sidebar-1',
+        'description'   => __('Widgets in this area will be shown on all posts and pages.', 'themetheme'),
+        'before_widget' => '<li id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</li>',
+        'before_title'  => '<h2 class="widgettitle">',
+        'after_title'   => '</h2>',
+    ));
+}
+add_action('widgets_init', 'bblack_widgets_sidebar');
+
+//  theme function
+
+function bblack_customize_register($wp_customize)
+{
+    // header area function
+
+
+
+    $wp_customize->add_section('bblack_header_logo', array(
+        'title' => __('Header Area', 'themetheme'),
+        'description' => 'If you upload header logo,You can upload your image',
+    ));
+
+    $wp_customize->add_setting('bblack_logo', array(
+        'default' => get_theme_file_uri('/images/team..png')
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'bblack_logo', array(
+        'label' => 'Logo Upload',
+        "setting" => 'bblack_logo',
+        'section' => 'bblack_header_logo'
+    )));
+
+
+    // আমাদের মেনু সেটিং
+    
+    $wp_customize -> add_section('bblcak_menu_option',array (
+        'title'=> __('Menu Position Set','themetheme'),
+        'description'=> 'If you want to changed menus possitions,then you can do it'
+    ));
+
+    $wp_customize->add_setting('bblack_menu_position',array(
+        'default'=> 'left_menu',
+    ));
+
+
+    $wp_customize-> add_control('bblack_menu_position',array(
+        'label'=> 'Menu Postion',
+        'descriptoin' => 'Do Menus position change from here',
+        "section" => 'bblcak_menu_option',
+        "setting" => 'bblack_menu_position',
+        'type' => 'radio',
+        "choices" => array(
+            'left_menu' => 'Left Menu',
+            'right_menu' => 'Right Menu',
+            'center_menu' => 'Center Menu'
+        )));
+};
+
+add_action('customize_register', 'bblack_customize_register');
 ?>

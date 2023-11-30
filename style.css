@@ -28,7 +28,9 @@ body {
 	color: #808080;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
 	margin: 0;
 	padding: 0;
 	font-family: 'Nova Mono', cursive;
@@ -48,7 +50,9 @@ h3 {
 	font-size: 1.6em;
 }
 
-p, ul, ol {
+p,
+ul,
+ol {
 	margin-top: 0;
 	line-height: 180%;
 }
@@ -109,7 +113,8 @@ img.aligncenter {
 	color: #1A1A1A;
 }
 
-#logo h1, #logo p {
+#logo h1,
+#logo p {
 	margin: 0;
 	padding: 0;
 }
@@ -123,6 +128,13 @@ img.aligncenter {
 	text-transform: lowercase;
 	font-size: 64px;
 	color: #1A1A1A;
+}
+
+.bblack-logo {
+	float: left;
+	margin: 0px;
+	padding-top: 100px;
+	padding-left: 30px;
 }
 
 #logo h1 a {
@@ -188,15 +200,14 @@ img.aligncenter {
 }
 
 #menu ul {
+
 	margin: 0;
 	padding: 0px 0px 0px 0px;
 	list-style: none;
 	line-height: normal;
 }
 
-#menu li {
-	float: left;
-}
+
 
 #menu a {
 	display: block;
@@ -393,3 +404,24 @@ img.aligncenter {
 #footer a {
 	color: #676767;
 }
+
+
+
+/* ================================================= */
+
+#menu.left_menu ul {
+	display: flex;
+	justify-content: left;
+}
+
+#menu.right_menu ul {
+	display: flex;
+	justify-content: right;
+}
+
+#menu.center_menu ul {
+	display: flex;
+	justify-content: center;
+}
+
+/* ---------------------- */
