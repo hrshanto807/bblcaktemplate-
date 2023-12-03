@@ -21,7 +21,7 @@
                                                                             ?></a></h1>
                     <p><?php //bloginfo('description')
                         ?></p> -->
-                    <img class="bblack-logo" src="<?php echo get_theme_mod('bblack_logo'); ?> " alt="">
+                    <a href="<?php echo esc_url(site_url());?>"><img class="bblack-logo" src="<?php echo get_theme_mod('bblack_logo'); ?> " alt=""></a>
                 </div>
             </div>
         </div>

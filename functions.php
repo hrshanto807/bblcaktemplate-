@@ -51,19 +51,9 @@ add_action('after_setup_theme', 'bblack_template');
 add_action('wp_enqueue_scripts', 'bblack_amar_sob_scripts');
 
 
-function bblack_widgets_sidebar()
-{
-    register_sidebar(array(
-        'name'          => __('Main Sidebar', 'themetheme'),
-        'id'            => 'sidebar-1',
-        'description'   => __('Widgets in this area will be shown on all posts and pages.', 'themetheme'),
-        'before_widget' => '<li id="%1$s" class="widget %2$s">',
-        'after_widget'  => '</li>',
-        'before_title'  => '<h2 class="widgettitle">',
-        'after_title'   => '</h2>',
-    ));
-}
-add_action('widgets_init', 'bblack_widgets_sidebar');
+// sidebar reg
+
+include_once('inc/widgets.php');
 
 //  theme function
 
@@ -115,4 +105,29 @@ function bblack_customize_register($wp_customize)
 };
 
 add_action('customize_register', 'bblack_customize_register');
+
+// walker menu setting
+
+
+// function bblack_nav_description($item_output,$item,$args){
+// if (!empty($item->description)){
+//     $item_output = str_replace($args->link_after.'</a>','<span class="walker_nav">'.$item->descrition.'</span>'.
+//     $args->link_after.'</a>',$item_output);
+//     return $item_output;
+// };
+
+// };
+// add_filter('walker_nav_menu_start_el','bblack_nav_description', 10, 3);
+
+
+
+
+
+
+
+
+
+
+
+
 ?>

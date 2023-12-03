@@ -1,3 +1,4 @@
+<?Php get_header(); ?>
 <div id="page">
 	<div id="page-bgtop">
 		<div id="page-bgbtm">
@@ -17,11 +18,7 @@
 								'class' => 'alignleft border',
 							));?>
 
-							<?php //the_content();?>
-
-							<p><?php //the_excerpt();?></p>
-
-							<?php echo wp_trim_words( get_the_content(), 50, ' <a href="'.get_the_permalink().'"class="view-more">View More</a>');?>
+							<?php the_content();?>
 						</div>
 					</div>
 				<?php endwhile; ?>
@@ -36,3 +33,4 @@
 </div>
 <!-- end #page -->
 </div>
+<?php get_footer()?>
