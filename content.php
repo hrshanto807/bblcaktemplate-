@@ -6,22 +6,42 @@
 				while (have_posts()) :
 					the_post();
 				?>
-				<div class="post">
-						<h2 class="title"><a href="<?php the_permalink()?>"><?php the_title() ?></a></h2>
-						<p class="meta">Posted by <a href="#"><?php the_author();?></a> 
-						on <?php echo get_the_date();?>
-							&nbsp;&bull;&nbsp; <a href="#" class="comments">Comments (<?php echo get_comments_number();?>)</a> &nbsp;&bull;&nbsp; <a href="<?php the_permalink()?>" class="permalink">Full Airtcle</a></p>
+					<div class="post">
+						<h2 class="title"><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h2>
+						<h4><?php //echo get_post_meta(get_the_ID(),'Bblack_Subtitle',true)
+							?></h4>
+
+						<h4><?php //echo get_post_meta(get_the_ID(),'bblack_our_Subtitle',true)
+							?></h4>
+
+						<h4>subtitle:<?php
+											$amar_subtitle =  get_post_meta(get_the_ID(), 'amar_subtitle', true);
+											if (!empty($amar_subtitle)) {
+												foreach ($amar_subtitle as $amar) {
+													echo '<h2>'." " . $amar.'</h2>'.'<br>';
+												}
+											} ?></h4>
+
+						<h4>email:<?php echo get_post_meta(get_the_ID(), 'amar_email', true) ?></h4>
+
+
+
+						<p class="meta">Posted by <a href="#"><?php the_author(); ?></a>
+							on <?php echo get_the_date(); ?>
+							&nbsp;&bull;&nbsp; <a href="#" class="comments">Comments (<?php echo get_comments_number(); ?>)</a> &nbsp;&bull;&nbsp; <a href="<?php the_permalink() ?>" class="permalink">Full Airtcle</a></p>
 						<div class="entry">
 
-							<?php the_post_thumbnail('bblock-post-thumbnails',array(
+							<?php the_post_thumbnail('bblock-post-thumbnails', array(
 								'class' => 'alignleft border',
-							));?>
+							)); ?>
 
-							<?php //the_content();?>
+							<?php //the_content();
+							?>
 
-							<p><?php //the_excerpt();?></p>
+							<p><?php //the_excerpt();
+								?></p>
 
-							<?php echo wp_trim_words( get_the_content(), 50, ' <a href="'.get_the_permalink().'"class="view-more">View More</a>');?>
+							<?php echo wp_trim_words(get_the_content(), 50, ' <a href="' . get_the_permalink() . '"class="view-more">View More</a>'); ?>
 						</div>
 					</div>
 				<?php endwhile; ?>
@@ -29,7 +49,7 @@
 
 				<div style="clear: both;">&nbsp;</div>
 			</div>
-			<?php get_sidebar();?>
+			<?php get_sidebar(); ?>
 			<div style="clear: both;">&nbsp;</div>
 		</div>
 	</div>

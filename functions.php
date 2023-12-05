@@ -80,19 +80,19 @@ function bblack_customize_register($wp_customize)
 
 
     // আমাদের মেনু সেটিং
-    
-    $wp_customize -> add_section('bblcak_menu_option',array (
-        'title'=> __('Menu Position Set','themetheme'),
-        'description'=> 'If you want to changed menus possitions,then you can do it'
+
+    $wp_customize->add_section('bblcak_menu_option', array(
+        'title' => __('Menu Position Set', 'themetheme'),
+        'description' => 'If you want to changed menus possitions,then you can do it'
     ));
 
-    $wp_customize->add_setting('bblack_menu_position',array(
-        'default'=> 'left_menu',
+    $wp_customize->add_setting('bblack_menu_position', array(
+        'default' => 'left_menu',
     ));
 
 
-    $wp_customize-> add_control('bblack_menu_position',array(
-        'label'=> 'Menu Postion',
+    $wp_customize->add_control('bblack_menu_position', array(
+        'label' => 'Menu Postion',
         'descriptoin' => 'Do Menus position change from here',
         "section" => 'bblcak_menu_option',
         "setting" => 'bblack_menu_position',
@@ -101,33 +101,47 @@ function bblack_customize_register($wp_customize)
             'left_menu' => 'Left Menu',
             'right_menu' => 'Right Menu',
             'center_menu' => 'Center Menu'
-        )));
+        )
+    ));
 };
 
 add_action('customize_register', 'bblack_customize_register');
 
-// walker menu setting
+// custom fields create/ meta box
 
-
-// function bblack_nav_description($item_output,$item,$args){
-// if (!empty($item->description)){
-//     $item_output = str_replace($args->link_after.'</a>','<span class="walker_nav">'.$item->descrition.'</span>'.
-//     $args->link_after.'</a>',$item_output);
-//     return $item_output;
+// function bblack_amar_custom_fields()
+// {
+//     add_meta_box(
+//         'bblack_subtitle_metabox',
+//         __('Black Subtitle', 'themetheme'),
+//         'bblack_meta_box_fun',
+//         'post',
+//         'advanced',
+//         'high'
+//     );
 // };
 
+// add_action('add_meta_boxes', 'bblack_amar_custom_fields');
+
+// function bblack_meta_box_fun($post)
+// {
+//     $value = get_post_meta(get_the_ID(),'bblack_our_Subtitle',true); ?>
+
+
+    <!-- <label for="bblack_our_Subtitle">Subtitle:</label>
+    <input type="text" name="bblack_our_Subtitle" id="bblack_our_Subtitle" placeholder="Inter your subttile" value="<?php //echo $value; ?>"> -->
+
+
+<?php //};
+
+// function bblack_amar_meta_save_post($post_id)
+// {
+//     update_post_meta($post_id, 'bblack_our_Subtitle', $_POST['bblack_our_Subtitle']);
 // };
-// add_filter('walker_nav_menu_start_el','bblack_nav_description', 10, 3);
+// add_action('save_post', 'bblack_amar_meta_save_post');
 
+require_once dirname( __FILE__ ) . '/inc/cmb2/init.php';
+// require_once dirname( __FILE__ ) . '/inc/cmb2/example-functions.php';
 
-
-
-
-
-
-
-
-
-
-
+require_once dirname( __FILE__ ) . "/inc/cmb2/fields.php";
 ?>
