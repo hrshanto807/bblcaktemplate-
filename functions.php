@@ -143,5 +143,5 @@ add_action('customize_register', 'bblack_customize_register');
 require_once dirname( __FILE__ ) . '/inc/cmb2/init.php';
 // require_once dirname( __FILE__ ) . '/inc/cmb2/example-functions.php';
 
-require_once dirname( __FILE__ ) . "/inc/cmb2/fields.php";
+//require_once dirname( __FILE__ ) . "/inc/cmb2/fields.php";
 ?>

@@ -14,15 +14,22 @@
 						<h4><?php //echo get_post_meta(get_the_ID(),'bblack_our_Subtitle',true)
 							?></h4>
 
-						<h4>subtitle:<?php
-											$amar_subtitle =  get_post_meta(get_the_ID(), 'amar_subtitle', true);
-											if (!empty($amar_subtitle)) {
-												foreach ($amar_subtitle as $amar) {
-													echo '<h2>'." " . $amar.'</h2>'.'<br>';
-												}
-											} ?></h4>
+						<!-- <h4>subtitle:<?php
+											// $amar_subtitle =  get_post_meta(get_the_ID(), 'amar_subtitle', true);
+											// if (!empty($amar_subtitle)) {
+											// 	foreach ($amar_subtitle as $amar) {
+											// 		echo '<h2>'." " . $amar.'</h2>'.'<br>';
+											// 	}
+											// } ?></h4>
 
-						<h4>email:<?php echo get_post_meta(get_the_ID(), 'amar_email', true) ?></h4>
+						<h4>email: <?php // echo get_post_meta(get_the_ID(), 'amar_email', true) ?></h4>
+						<h4>textsmall: <?php // echo get_post_meta(get_the_ID(), 'bblack_textsmall', true) ?></h4>
+						<h4>textmedium: <?php // echo get_post_meta(get_the_ID(), 'bblack_textmedium', true) ?></h4>
+						<h4>text url: <?php // echo get_post_meta(get_the_ID(), 'bblack_url', true) ?></h4>
+						<h4>time: <?php // echo get_post_meta(get_the_ID(), 'bblack_time', true) ?></h4>
+						<h4>date: <?php // echo get_post_meta(get_the_ID(), 'bblack_textdate', true) ?></h4>
+						<h4>money: <?php // echo get_post_meta(get_the_ID(), 'bblack_textmoney', true) ?></h4>
+						<p>textarea: <?php // echo get_post_meta(get_the_ID(), 'bblack_textarea', true) ?></p> -->
 
 
 
